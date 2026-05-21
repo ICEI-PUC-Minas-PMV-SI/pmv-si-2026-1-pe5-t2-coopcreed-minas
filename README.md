@@ -1,4 +1,4 @@
-# Título do Projeto
+# Projeto de Infraestrutura de Rede – CoopCred Minas
 
 `CURSO: Sistemas de Informação`
 
@@ -6,18 +6,18 @@
 
 `Eixo: 5`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto tem como objetivo desenvolver uma proposta de infraestrutura de rede para a cooperativa financeira fictícia CoopCred Minas, sediada em Uberlândia/MG e com filiais nas cidades de Araguari e Monte Carmelo.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Amanda Magalhães Silva
+* Gustavo Torres da Rocha Castro
+* Luanna Gyovana Rodrigues da Silva
+* Milleny Ellen Jodas Ferreira
+* Nico Rocha da Costa
 
 ## Orientador
 
-* Nome completo do professor 1
+* Alexandre Teixeira
 
 
