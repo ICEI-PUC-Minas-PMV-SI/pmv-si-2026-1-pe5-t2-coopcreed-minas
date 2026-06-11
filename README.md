@@ -20,4 +20,36 @@ O projeto tem como objetivo desenvolver uma proposta de infraestrutura de rede p
 
 * Alexandre Teixeira
 
+## Aplicação Back-end CRUD
 
+Foi criada uma API REST com painel web simples para Gestão de Ativos de Rede da CoopCred Minas.
+
+O código da aplicação está na pasta `backend`.
+
+A aplicação usa Node.js, Express, SQLite, HTML, CSS e JavaScript puro para disponibilizar um CRUD simples de ativos de rede.
+
+Rotas principais:
+
+- `GET /`
+- `GET /health`
+- `POST /ativos`
+- `GET /ativos`
+- `GET /ativos/:id`
+- `PUT /ativos/:id`
+- `DELETE /ativos/:id`
+
+Execução local:
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+Painel web:
+
+```text
+http://localhost:3000/
+```
+
+A aplicação será implantada no servidor de aplicações da CoopCred Minas como parte da entrega final do Eixo 5.

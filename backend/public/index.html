@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopCred Minas | Gestão de Ativos</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">API REST Back-end</p>
+        <h1>CoopCred Minas</h1>
+        <p class="subtitle">Gest&atilde;o de Ativos de Rede</p>
+        <p class="hero-copy">
+          Painel demonstrativo do CRUD da API para inventariar matriz, filiais, servidores,
+          dispositivos de rede, Zabbix, VPN e demais ativos da infraestrutura acadêmica.
+        </p>
+        <div class="context-tags" aria-label="Contexto da infraestrutura">
+          <span>Matriz Uberlândia</span>
+          <span>Filial Araguari</span>
+          <span>Filial Monte Carmelo</span>
+        </div>
+      </div>
+      <span class="api-badge" id="apiStatus">
+        <span class="status-dot"></span>
+        Verificando API
+      </span>
+    </header>
+
+    <main>
+      <section class="summary-grid" aria-label="Resumo de ativos">
+        <article class="metric-card">
+          <span>Total de ativos</span>
+          <strong id="totalAtivos">0</strong>
+        </article>
+        <article class="metric-card">
+          <span>Servidores</span>
+          <strong id="totalServidores">0</strong>
+        </article>
+        <article class="metric-card">
+          <span>Dispositivos de rede</span>
+          <strong id="totalDispositivosRede">0</strong>
+        </article>
+        <article class="metric-card">
+          <span>Ativos em operação</span>
+          <strong id="totalAtivosOperacao">0</strong>
+        </article>
+      </section>
+
+      <section class="panel form-panel" aria-labelledby="formTitle">
+        <div class="panel-header">
+          <div>
+            <p class="section-label">Cadastro</p>
+            <h2 id="formTitle">Novo ativo de rede</h2>
+            <p class="panel-copy">Interface simples para demonstrar criação, consulta, atualização e exclusão via API REST.</p>
+          </div>
+        </div>
+
+        <div class="message" id="message" role="status" aria-live="polite"></div>
+
+        <form id="assetForm" class="asset-form">
+          <div class="form-field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" placeholder="MTZ-SRV-APP-01" required>
+          </div>
+
+          <div class="form-field">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">Selecione</option>
+              <option>Servidor</option>
+              <option>Switch</option>
+              <option>Roteador</option>
+              <option>Access Point</option>
+              <option>Impressora</option>
+              <option>Câmera IP</option>
+              <option>ATM</option>
+              <option>Telefone IP</option>
+              <option>Firewall</option>
+              <option>Zabbix</option>
+              <option>Outro</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="ip">IP</label>
+            <input id="ip" name="ip" type="text" placeholder="192.168.0.15" required>
+          </div>
+
+          <div class="form-field">
+            <label for="localizacao">Localização</label>
+            <input id="localizacao" name="localizacao" type="text" placeholder="Matriz - Uberlandia" required>
+          </div>
+
+          <div class="form-field">
+            <label for="sistema_operacional">Sistema operacional</label>
+            <input id="sistema_operacional" name="sistema_operacional" type="text" placeholder="Ubuntu Server 22.04">
+          </div>
+
+          <div class="form-field">
+            <label for="servico">Serviço</label>
+            <input id="servico" name="servico" type="text" placeholder="Servidor de Aplicações">
+          </div>
+
+          <div class="form-field">
+            <label for="status">Status</label>
+            <select id="status" name="status" required>
+              <option value="">Selecione</option>
+              <option>Ativo</option>
+              <option>Em manutenção</option>
+              <option>Inativo</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="responsavel">Responsável</label>
+            <input id="responsavel" name="responsavel" type="text" placeholder="Infraestrutura">
+          </div>
+
+          <div class="form-actions">
+            <button class="button button-primary" id="submitButton" type="submit">Cadastrar ativo</button>
+            <button class="button button-secondary hidden" id="cancelEditButton" type="button">Cancelar edição</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel table-panel" aria-labelledby="tableTitle">
+        <div class="panel-header table-header">
+          <div>
+            <p class="section-label">Inventário</p>
+            <h2 id="tableTitle">Ativos cadastrados</h2>
+            <p class="panel-copy">Registros alinhados ao documento acadêmico da infraestrutura CoopCred Minas.</p>
+          </div>
+          <span class="table-count" id="tableCount">0 registros</span>
+        </div>
+
+        <div class="loading-state" id="loadingState">Carregando ativos...</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>IP</th>
+                <th>Localização</th>
+                <th>Serviço</th>
+                <th>Status</th>
+                <th>Responsável</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="assetsTableBody"></tbody>
+          </table>
+        </div>
+        <div class="empty-state hidden" id="emptyState">
+          Nenhum ativo cadastrado ainda.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
