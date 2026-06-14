@@ -1,0 +1,21 @@
+{
+  "name": "coopcred-api",
+  "version": "1.0.0",
+  "description": "API REST para Gestao de Ativos de Rede da CoopCred Minas.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "sqlite",
+    "api",
+    "coopcred"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}
