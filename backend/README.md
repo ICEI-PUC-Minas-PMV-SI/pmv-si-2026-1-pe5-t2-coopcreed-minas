@@ -1,10 +1,10 @@
-# CoopCred API
+# CoopCred Minas API de Ativos de Rede
 
-API REST com interface web simples para Gestão de Ativos de Rede da CoopCred Minas.
+API REST com painel web demonstrativo para Gestão de Ativos de Rede da CoopCred Minas.
 
-## Objetivo da API
+## Objetivo da aplicação
 
-Esta aplicação representa o servidor de aplicações da CoopCred Minas na entrega final do Eixo 5. A API permite cadastrar, listar, buscar, atualizar e excluir ativos de rede da infraestrutura simulada do projeto. Também existe um painel web simples em `/` para demonstrar o CRUD.
+Esta aplicação CRUD simples permite cadastrar, listar, consultar, atualizar e excluir ativos de rede da infraestrutura simulada da CoopCred Minas. Além da API REST, existe um painel web simples em `/`, usado para facilitar a validação visual das operações CRUD.
 
 ## Tecnologias utilizadas
 
@@ -132,21 +132,52 @@ Remover um ativo:
 curl -X DELETE http://localhost:3000/ativos/1
 ```
 
-## Deploy básico em servidor Ubuntu com npm e pm2
+## Deploy em nuvem
 
-1. Instale Node.js no servidor.
-2. Copie o projeto para o servidor.
-3. Entre na pasta `backend`.
-4. Instale as dependências com `npm install`.
-5. Inicie a API localmente com `npm start` para validar o funcionamento.
-6. Instale o pm2 com `npm install -g pm2`.
-7. Suba a aplicação com `pm2 start server.js --name coopcred-api`.
-8. Salve o processo com `pm2 save`.
-9. Configure inicialização automática com `pm2 startup`.
+- Provedor: AWS EC2
+- Servidor lógico: `MTZ-SRV-APP-CLOUD-01`
+- Sistema operacional: Ubuntu Server
+- Aplicação: CRUD de Gestão de Ativos de Rede
+- Stack de deploy: Node.js, Express, SQLite, PM2 e Nginx
+- Porta interna da aplicação: `3000`
+- Porta pública: `80` HTTP
+- Elastic IP associado: `52.206.244.45`
+- Aplicação publicada: `http://52.206.244.45/`
+- Health check público: `http://52.206.244.45/health`
+- Listagem pública de ativos: `http://52.206.244.45/ativos`
 
-## Observacoes
+## Arquitetura do deploy
+
+Fluxo da requisição:
+
+`Cliente/Navegador -> HTTP porta 80 -> Nginx -> 127.0.0.1:3000 -> Node.js/Express -> SQLite`
+
+## Segurança básica do deploy
+
+- A porta `3000` da aplicação não foi exposta diretamente para a internet.
+- O acesso público acontece pelo Nginx na porta `80`.
+- O processo Node.js fica mantido pelo PM2.
+- O Elastic IP foi associado para evitar mudança do endereço público após `stop/start` da instância.
+
+## Exemplos públicos com curl
+
+Verificar saúde da API publicada:
+
+```bash
+curl http://52.206.244.45/health
+```
+
+Listar ativos publicados:
+
+```bash
+curl http://52.206.244.45/ativos
+```
+
+## Observações
 
 - O banco SQLite é criado automaticamente na primeira execução.
 - A tabela `ativos` é criada automaticamente, se necessário.
 - A aplicação insere ativos iniciais quando a tabela está vazia.
 - Os arquivos do painel web ficam em `backend/public`.
+- O banco SQLite gerado localmente não deve ser versionado.
+- Chaves `.pem` e arquivos `.env` não devem ser versionados.
