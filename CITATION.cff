@@ -1,29 +1,25 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title:
-authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
+title: Projeto de Infraestrutura de Rede: CoopCred Minas
+authors: 
+  - family-names: Magalhães Silva
+    given-names: Amanda 
+  - family-names: Torres da Rocha Castro
+    given-names: Gustavo 
+  - family-names: Gyovana Rodrigues da Silva
+    given-names: Luanna
+  - family-names: Ellen Jodas Ferreira
+    given-names: Milleny 
+  - family-names: Rocha da Costa
+    given-names: Nico
+  - name-suffix: Professor Alexandre Teixeira
     affiliation: PUC Minas
-    family-names:
-    given-names:
-keywords:
-  -
-  -
-repository-code:
+keywords: 
+  - Infraestrutura de Redes de Computadores
+  - Segurança da Informação
+  - Gerência de Redes
+  - Cloud Computing
+repository-code: https://github.com/coopcred-minas/pmv-si-2026-1-pe5-t2-coopcreed-minas
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2023-06-30
+date-released: 2026-06-01
