@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+credentials*
+secrets*
+backend/node_modules/
+backend/data/*.sqlite
+backend/data/*.sqlite-shm
+backend/data/*.sqlite-wal
