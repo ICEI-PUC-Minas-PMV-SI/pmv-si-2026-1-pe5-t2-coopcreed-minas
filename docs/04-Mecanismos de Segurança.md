@@ -19,3 +19,11 @@ Foi desenvolvido uma cartilha de boas práticas para os colaboradores, com base 
 ![alt text](<images/4 e 1.png>)
 
 ![alt text](<images/2 e 3.png>)
+
+# Implantação da aplicação back-end 
+
+Foi realizada a implantação de uma aplicação back-end em ambiente de nuvem, utilizando uma instância EC2 Ubuntu na AWS. A aplicação desenvolvida consiste em um CRUD simples para gestão de ativos de rede da CoopCred Minas, com interface demonstrativa para validação das operações de cadastro, consulta, atualização e exclusão.
+
+A aplicação foi desenvolvida com Node.js, Express e SQLite. Para manter o serviço em execução contínua no servidor, foi utilizado o PM2. O Nginx foi configurado como proxy reverso, permitindo o acesso público pela porta HTTP 80 e encaminhando as requisições para a aplicação Node.js em execução local na porta 3000. A instância criada recebeu o nome lógico MTZ-SRV-APP-CLOUD-01 mantendo o padrão de nomenclatura já adotado.
+
+A documentação da aplicação pode ser acessa aqui: [Documentação da aplicação](/backend/README.md).
