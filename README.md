@@ -28,6 +28,6 @@ O projeto tem como objetivo desenvolver uma proposta de infraestrutura de rede p
 4. [Mecanismos de Segurança](docs/04-Mecanismos%20de%20Seguran%C3%A7a.md)
 5. [Apresentação Final](docs/05-Apresenta%C3%A7%C3%A3o%20Final.md)
 
-# Relatório final 
+## Relatório final 
 
 [Relatório Final - Infraestrutura de Redes Cooperativa](<../Relatório Final - Infraestrutura de Rede Cooperativa.pdf>)
