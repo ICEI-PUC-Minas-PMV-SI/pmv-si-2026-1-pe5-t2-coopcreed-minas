@@ -30,4 +30,4 @@ O projeto tem como objetivo desenvolver uma proposta de infraestrutura de rede p
 
 ## Relatório final 
 
-[Relatório Final - Infraestrutura de Redes Cooperativa](<../Relatório Final - Infraestrutura de Rede Cooperativa.pdf>)
+[Relatório Final - Infraestrutura de Redes Cooperativa](<../Projeto/Relatório Final - Infraestrutura de Rede Cooperativa.pdf>)
